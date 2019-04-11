@@ -8,14 +8,17 @@ expects.
 The code is very long and messy. Refactor it according to what you have learned about
 code simplicity and efficiency.
 """
-import operations as op
-import conversion as con
+from word2number import w2n
 
 print('Welcome to this calculator!')
 print('It can add and subtract whole numbers from zero to five')
 
 number_options = 'zeroonetwothreefourfiveZeroOneTwoThreeFourFiveZEROONETWOTHREEFOURFIVE'
 ops_options = 'plusminus'
+
+a = 'None'
+b = 'None'
+c = 'None'
 
 while a not in number_options:
     a = str(input('Please choose your first number (zero to five): '))
@@ -25,14 +28,14 @@ while c not in number_options:
     c = str(input('Please choose your second number (zero to five): '))
 
 # convert words into numbers
-a_num = con.word2number(a)
-b_num = con.word2number(b)
+a_num = w2n.word_to_num(a)
+c_num = w2n.word_to_num(c)
 
 if b == 'plus':
-    op.plus(a, c)
+    result = a_num + c_num
 elif b == 'minus':
-    op.minus(a, c)
+    result = a_num - c_num
 else:
-    print('Error: invalid input')
+    result = 'Error: invalid input'
 
-print("Thanks for using this calculator, goodbye :)")
+print(f'Result: {result}\nThanks for using this calculator, goodbye :)')
